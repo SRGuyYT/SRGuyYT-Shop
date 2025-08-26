@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Hide Store</title>
+<title>SkyServers Store</title>
 <link rel="stylesheet" href="style.css">
 
 <!-- Google Analytics -->
@@ -17,7 +17,7 @@
 </head>
 <body>
   <header>
-    <h1>Auto Hide Store</h1>
+    <h1>SkyServers Store</h1>
     <button id="toggle-dark">Toggle Dark Mode</button>
     <nav>
       <a href="#" onclick="showLogin()">Login</a>
@@ -27,40 +27,46 @@
 
   <main>
     <section class="products">
-      <h2>Ranks</h2>
+      <h2>🎖 Ranks</h2>
       <div class="card">
         <h3>VIP</h3>
         <p>$9.99</p>
+        <p>✨ Starter perks: $5,000, 2 homes, /hat, /craft, priority support</p>
       </div>
       <div class="card">
         <h3>MVP</h3>
         <p>$19.99</p>
+        <p>💎 Mid-tier perks: $15,000, 5 homes, /nick, /hat, /craft, /back</p>
       </div>
       <div class="card">
         <h3>LEGEND</h3>
         <p>$29.99</p>
+        <p>🔥 Top-tier perks: $50,000, 10 homes, /fly, exclusive kits, reserved slot</p>
       </div>
 
-      <h2>Money Pouchs</h2>
+      <h2>💰 Money Packs</h2>
       <div class="card"><h3>Small Money Pouch</h3><p>$2.99</p></div>
       <div class="card"><h3>Big Money Pouch</h3><p>$7.99</p></div>
       <div class="card"><h3>Mega Money Pouch</h3><p>$14.99</p></div>
 
-      <h2>Crate Keys</h2>
+      <h2>🎟 Crate Keys</h2>
       <div class="card"><h3>Vote Crate Keys (x3)</h3><p>$1.99</p></div>
       <div class="card"><h3>Rare Crate Keys (x3)</h3><p>$4.99</p></div>
       <div class="card"><h3>Legendary Crate Key (x1)</h3><p>$7.99</p></div>
 
-      <h2>Specials</h2>
+      <h2>🎨 Cosmetics</h2>
       <div class="card"><h3>/nick Unlock</h3><p>$3.99</p></div>
       <div class="card"><h3>/hat Unlock</h3><p>$1.99</p></div>
       <div class="card"><h3>/fly Unlock</h3><p>$6.99</p></div>
 
-      <h2>Bundles</h2>
+      <h2>🎁 Bundles</h2>
       <div class="card"><h3>Starter Bundle</h3><p>$12.99</p></div>
       <div class="card"><h3>Builder’s Bundle</h3><p>$19.99</p></div>
       <div class="card"><h3>Ultimate VIP Bundle</h3><p>$39.99</p></div>
     </section>
+
+    <!-- Modals for Login/Signup/Reset -->
+    <div class="modal-bg" id="modal-bg"></div>
 
     <section id="login-form" class="modal">
       <h2>Login</h2>
@@ -86,7 +92,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Auto Hide Store</p>
+    <p>&copy; 2025 SkyServers</p>
   </footer>
 
 <script src="script.js"></script>
