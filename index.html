@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Hide Store</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXX'); <!-- Replace with your GA4 ID -->
+</script>
+</head>
+<body>
+  <header>
+    <h1>Auto Hide Store</h1>
+    <button id="toggle-dark">Toggle Dark Mode</button>
+    <nav>
+      <a href="#" onclick="showLogin()">Login</a>
+      <a href="#" onclick="showSignup()">Signup</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products">
+      <h2>Ranks</h2>
+      <div class="card">
+        <h3>VIP</h3>
+        <p>$9.99</p>
+      </div>
+      <div class="card">
+        <h3>MVP</h3>
+        <p>$19.99</p>
+      </div>
+      <div class="card">
+        <h3>LEGEND</h3>
+        <p>$29.99</p>
+      </div>
+
+      <h2>Money Pouchs</h2>
+      <div class="card"><h3>Small Money Pouch</h3><p>$2.99</p></div>
+      <div class="card"><h3>Big Money Pouch</h3><p>$7.99</p></div>
+      <div class="card"><h3>Mega Money Pouch</h3><p>$14.99</p></div>
+
+      <h2>Crate Keys</h2>
+      <div class="card"><h3>Vote Crate Keys (x3)</h3><p>$1.99</p></div>
+      <div class="card"><h3>Rare Crate Keys (x3)</h3><p>$4.99</p></div>
+      <div class="card"><h3>Legendary Crate Key (x1)</h3><p>$7.99</p></div>
+
+      <h2>Specials</h2>
+      <div class="card"><h3>/nick Unlock</h3><p>$3.99</p></div>
+      <div class="card"><h3>/hat Unlock</h3><p>$1.99</p></div>
+      <div class="card"><h3>/fly Unlock</h3><p>$6.99</p></div>
+
+      <h2>Bundles</h2>
+      <div class="card"><h3>Starter Bundle</h3><p>$12.99</p></div>
+      <div class="card"><h3>Builder’s Bundle</h3><p>$19.99</p></div>
+      <div class="card"><h3>Ultimate VIP Bundle</h3><p>$39.99</p></div>
+    </section>
+
+    <section id="login-form" class="modal">
+      <h2>Login</h2>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button onclick="closeForms()">Login</button>
+      <p><a href="#" onclick="showReset()">Forgot Password?</a></p>
+    </section>
+
+    <section id="signup-form" class="modal">
+      <h2>Signup</h2>
+      <input type="text" placeholder="Username">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button onclick="closeForms()">Signup</button>
+    </section>
+
+    <section id="reset-form" class="modal">
+      <h2>Password Reset</h2>
+      <input type="email" placeholder="Email">
+      <button onclick="closeForms()">Reset</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Auto Hide Store</p>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
