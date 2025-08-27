@@ -1,100 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkyServers Store</title>
-<link rel="stylesheet" href="style.css">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXX'); <!-- Replace with your GA4 ID -->
-</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SRGuyYT Network — BedWars • Skyblock • SMP</title>
+  <meta name="description" content="SRGuyYT Minecraft Network — BedWars, Skyblock, SMP. Java & Bedrock crossplay via Geyser. Join now!" />
+  <meta property="og:title" content="SRGuyYT Network" />
+  <meta property="og:description" content="BedWars • Skyblock • SMP — Java & Bedrock crossplay. Join now!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/111/fff&text=SRGuyYT+Network" />
+  <meta name="theme-color" content="#8b5cf6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b12; --card:#121222; --soft:#1a1a2f; --accent:#8b5cf6; --accent-2:#22d3ee; --text:#f8fafc; --muted:#a3a3b2;
+      --ring: 0 0 0 3px rgba(139,92,246,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1000px 600px at 10% -10%,rgba(34,211,238,.15),transparent),radial-gradient(800px 500px at 100% 0,rgba(139,92,246,.12),transparent),var(--bg);color:var(--text);font:16px/1.6 'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(11,11,18,.9),rgba(11,11,18,.4),transparent)}
+    .nav{display:flex;align-items:center;gap:18px;padding:14px 0}
+    .nav .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+    .pill{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--soft),#101020);border:1px solid #242446;border-radius:9999px;padding:8px 14px}
+    .pill code{font-weight:700}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--accent),#6d28d9);border:0;border-radius:12px;padding:12px 16px;font-weight:700;box-shadow:0 15px 40px rgba(139,92,246,.25);transition:transform .1s ease, box-shadow .2s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 20px 50px rgba(139,92,246,.35)}
+    .btn.alt{background:linear-gradient(135deg,var(--accent-2),#0891b2);box-shadow:0 15px 40px rgba(34,211,238,.25)}
+    .btn.ghost{background:transparent;border:1px solid #2a2a44}
+    .btn.small{padding:9px 12px;border-radius:10px;font-weight:600}
+    .hero{padding:70px 0 40px;display:grid;gap:28px}
+    .title{font-size:clamp(28px,5vw,46px);line-height:1.1;margin:0}
+    .subtitle{color:var(--muted);margin:0}
+    .stack{display:flex;flex-wrap:wrap;gap:12px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);border:1px solid #242446;border-radius:16px;padding:20px}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.grid.cols-3{grid-template-columns:1fr}.grid.cols-2{grid-template-columns:1fr}}
+    h2{font-size:22px;margin:0 0 12px}
+    h3{font-size:18px;margin:0 0 6px}
+    section{padding:30px 0}
+    ul{margin:10px 0 0 18px}
+    footer{padding:40px 0;color:#8b8b98;border-top:1px solid #23233a;margin-top:30px}
+    .footgrid{display:grid;gap:14px;grid-template-columns:1fr auto;align-items:center}
+    .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;color:#dfe9ff;background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18))}
+    .notice{font-size:13px;color:#b9b9c8}
+    .kbd{background:#1e1e30;border:1px solid #2d2d46;border-bottom-color:#242446;border-radius:6px;padding:1px 6px;font-size:12px}
+    .callout{border:1px dashed #2a2a45;border-radius:12px;padding:12px;background:rgba(138,92,246,.06)}
+    .store-banner{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+  </style>
 </head>
 <body>
   <header>
-    <h1>SkyServers Store</h1>
-    <button id="toggle-dark">Toggle Dark Mode</button>
-    <nav>
-      <a href="#" onclick="showLogin()">Login</a>
-      <a href="#" onclick="showSignup()">Signup</a>
-    </nav>
+    <div class="container nav">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7L12 2z" stroke="#8b5cf6" stroke-width="1.5"/><path d="M12 7l5 3v4l-5 3-5-3v-4l5-3z" stroke="#22d3ee" stroke-width="1.5"/></svg>
+        <span>SRGuyYT Network</span>
+      </div>
+      <div style="margin-left:auto" class="stack">
+        <a class="pill" href="#howto"><strong>How to Join</strong></a>
+        <a class="pill" href="#store"><strong>Store</strong></a>
+        <a class="btn small ghost" href="#vote">Vote</a>
+        <a class="btn small" href="#ip">Play Now</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="products">
-      <h2>🎖 Ranks</h2>
+  <main class="container">
+    <section class="hero">
+      <p class="tag">BedWars • Skyblock • SMP • Crossplay</p>
+      <h1 class="title">One server. Endless worlds.</h1>
+      <p class="subtitle">Join from Java or Bedrock. BedWars for sweats, Skyblock for grinders, SMP for chill vibes — and <b>no one touches the MainLobby</b> 😎</p>
+      <div class="stack">
+        <a class="btn" href="#ip">Copy IP & Port</a>
+        <a class="btn alt" href="#store">Open the Store</a>
+        <a class="btn ghost" href="#discord">Join Discord</a>
+      </div>
+    </section>
+
+    <section id="ip" class="grid cols-3">
       <div class="card">
-        <h3>VIP</h3>
-        <p>$9.99</p>
-        <p>✨ Starter perks: $5,000, 2 homes, /hat, /craft, priority support</p>
+        <h2>Java Edition</h2>
+        <p>Direct connect with this address:</p>
+        <div class="pill"><span>Server IP:</span> <code id="java-ip">play.srguyyt.net</code></div>
+        <p class="notice">Edit this in the HTML if your IP is different.</p>
       </div>
       <div class="card">
-        <h3>MVP</h3>
-        <p>$19.99</p>
-        <p>💎 Mid-tier perks: $15,000, 5 homes, /nick, /hat, /craft, /back</p>
+        <h2>Bedrock Edition</h2>
+        <p>Use <span class="kbd">Add Server</span> and enter:</p>
+        <div class="pill" style="margin-bottom:6px"><span>Address:</span> <code id="bedrock-ip">play.srguyyt.net</code></div>
+        <div class="pill"><span>Port:</span> <code id="bedrock-port">19132</code></div>
+        <p class="notice">Works with GeyserMC proxy on your Java server.</p>
       </div>
       <div class="card">
-        <h3>LEGEND</h3>
-        <p>$29.99</p>
-        <p>🔥 Top-tier perks: $50,000, 10 homes, /fly, exclusive kits, reserved slot</p>
+        <h2>Game Modes</h2>
+        <ul>
+          <li><b>BedWars</b> — fast queues, anti-targeting</li>
+          <li><b>Skyblock</b> — island upgrades, shops</li>
+          <li><b>SMP</b> — grief-protected, economy</li>
+        </ul>
       </div>
-
-      <h2>💰 Money Packs</h2>
-      <div class="card"><h3>Small Money Pouch</h3><p>$2.99</p></div>
-      <div class="card"><h3>Big Money Pouch</h3><p>$7.99</p></div>
-      <div class="card"><h3>Mega Money Pouch</h3><p>$14.99</p></div>
-
-      <h2>🎟 Crate Keys</h2>
-      <div class="card"><h3>Vote Crate Keys (x3)</h3><p>$1.99</p></div>
-      <div class="card"><h3>Rare Crate Keys (x3)</h3><p>$4.99</p></div>
-      <div class="card"><h3>Legendary Crate Key (x1)</h3><p>$7.99</p></div>
-
-      <h2>🎨 Cosmetics</h2>
-      <div class="card"><h3>/nick Unlock</h3><p>$3.99</p></div>
-      <div class="card"><h3>/hat Unlock</h3><p>$1.99</p></div>
-      <div class="card"><h3>/fly Unlock</h3><p>$6.99</p></div>
-
-      <h2>🎁 Bundles</h2>
-      <div class="card"><h3>Starter Bundle</h3><p>$12.99</p></div>
-      <div class="card"><h3>Builder’s Bundle</h3><p>$19.99</p></div>
-      <div class="card"><h3>Ultimate VIP Bundle</h3><p>$39.99</p></div>
     </section>
 
-    <!-- Modals for Login/Signup/Reset -->
-    <div class="modal-bg" id="modal-bg"></div>
-
-    <section id="login-form" class="modal">
-      <h2>Login</h2>
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
-      <button onclick="closeForms()">Login</button>
-      <p><a href="#" onclick="showReset()">Forgot Password?</a></p>
+    <section class="grid cols-2">
+      <div class="card">
+        <h2>Featured Rank — VIP <span class="tag">$9.99</span></h2>
+        <p>Support the server and get quality-of-life boosts across <b>BedWars</b>, <b>Skyblock</b> and <b>SMP</b>.</p>
+        <ul>
+          <li>⚡ Queue priority & <span class="kbd">/nick</span> (BedWars)</li>
+          <li>📦 +6 homes, /craft, /feed (SMP)</li>
+          <li>🌱 +2 island members, /fly in island (Skyblock)</li>
+          <li>🎨 VIP tag, lobby gadgets, cosmetics</li>
+        </ul>
+        <div class="stack">
+          <a class="btn" href="#store">Get VIP</a>
+          <a class="btn ghost" href="#perks">See All Perks</a>
+        </div>
+      </div>
+      <div id="store" class="card">
+        <div class="store-banner">
+          <div>
+            <h2>Official Webstore</h2>
+            <p>Instant delivery in‑game through Tebex after checkout.</p>
+          </div>
+          <a class="btn alt" href="https://YOUR-TEBEX-SHORT-URL" target="_blank" rel="noopener">Open Store</a>
+        </div>
+        <div class="callout" style="margin-top:12px">
+          <strong>Note:</strong> If you encounter any issues, please email us at <a href="mailto:SRGuyYT@outlook.com">SRGuyYT@outlook.com</a>.
+        </div>
+      </div>
     </section>
 
-    <section id="signup-form" class="modal">
-      <h2>Signup</h2>
-      <input type="text" placeholder="Username">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button onclick="closeForms()">Signup</button>
+    <section id="howto" class="grid cols-2">
+      <div class="card">
+        <h2>How to Join — Java</h2>
+        <ol>
+          <li>Open Minecraft Java (latest version recommended).</li>
+          <li>Click <b>Multiplayer</b> → <b>Direct Connect</b>.</li>
+          <li>Enter <span class="kbd" id="java-ip-2">play.srguyyt.net</span> then <b>Join Server</b>.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h2>How to Join — Bedrock</h2>
+        <ol>
+          <li>Open Minecraft Bedrock (Phone / Console / Windows).</li>
+          <li>Go to <b>Servers</b> → <b>Add Server</b>.</li>
+          <li>Name: <span class="kbd">SRGuyYT</span></li>
+          <li>Address: <span class="kbd" id="bedrock-ip-2">play.srguyyt.net</span></li>
+          <li>Port: <span class="kbd" id="bedrock-port-2">19132</span></li>
+        </ol>
+      </div>
     </section>
 
-    <section id="reset-form" class="modal">
-      <h2>Password Reset</h2>
-      <input type="email" placeholder="Email">
-      <button onclick="closeForms()">Reset</button>
+    <section id="perks" class="grid cols-3">
+      <div class="card">
+        <h3>BedWars VIP</h3>
+        <ul>
+          <li>Queue priority</li>
+          <li>/nick (anti‑focus)</li>
+          <li>Exclusive cosmetics</li>
+          <li>Lobby gadgets</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Skyblock VIP</h3>
+        <ul>
+          <li>+2 island members</li>
+          <li>/fly inside island</li>
+          <li>Daily crate key</li>
+          <li>/fix once per day</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>SMP VIP</h3>
+        <ul>
+          <li>+6 homes</li>
+          <li>/craft and /feed</li>
+          <li>/hat and /workbench</li>
+          <li>Player particles & trails</li>
+        </ul>
+      </div>
     </section>
+
+    <section id="discord" class="grid cols-2">
+      <div class="card">
+        <h2>Community Discord</h2>
+        <p>Get updates, support, and giveaways on our Discord.</p>
+        <a class="btn" href="https://discord.gg/YOURCODE" target="_blank" rel="noopener">Join Discord</a>
+      </div>
+      <div class="card">
+        <h2>Rules Snapshot</h2>
+        <ul>
+          <li>No cheating or exploiting</li>
+          <li>No griefing outside allowed game modes</li>
+          <li>Be respectful — keep it fun</li>
+          <li>Report issues to staff on Discord</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="vote" class="grid cols-2">
+      <div class="card">
+        <h2>Vote & Earn</h2>
+        <p>Vote daily to earn crate keys and coins.</p>
+        <div class="stack">
+          <a class="btn small ghost" href="#">Vote Site #1</a>
+          <a class="btn small ghost" href="#">Vote Site #2</a>
+          <a class="btn small ghost" href="#">Vote Site #3</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Status</h2>
+        <p>Players online: <span id="online">—</span></p>
+        <p class="notice">(Optional) You can hook this to a status API later.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footgrid">
+        <div>© <span id="year"></span> SRGuyYT Network — Not affiliated with Mojang or Microsoft.</div>
+        <div class="stack">
+          <a class="pill" href="#ip">Join</a>
+          <a class="pill" href="#store">Store</a>
+          <a class="pill" href="#discord">Discord</a>
+        </div>
+      </div>
+      <p class="notice" style="margin-top:8px">Note: If you encounter any issues, please email us at <a href="mailto:SRGuyYT@outlook.com">SRGuyYT@outlook.com</a>.</p>
+    </footer>
   </main>
 
-  <footer>
-    <p>&copy; 2025 SkyServers</p>
-  </footer>
+  <script>
+    // Small niceties
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<script src="script.js"></script>
+    // TODO: Update these with your real address/port once you have them
+    const JAVA_IP = 'play.srguyyt.net';
+    const BEDROCK_IP = 'play.srguyyt.net';
+    const BEDROCK_PORT = '19132';
+    ['java-ip','java-ip-2'].forEach(id=>document.getElementById(id).textContent=JAVA_IP);
+    ['bedrock-ip','bedrock-ip-2'].forEach(id=>document.getElementById(id).textContent=BEDROCK_IP);
+    ['bedrock-port','bedrock-port-2'].forEach(id=>document.getElementById(id).textContent=BEDROCK_PORT);
+  </script>
 </body>
 </html>
